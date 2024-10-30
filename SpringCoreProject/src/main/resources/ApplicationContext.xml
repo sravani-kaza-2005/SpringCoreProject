@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1st bean definitions here -->
+	<bean id="empbean" class="SetterDI.Employee">
+	<property name="id" value="4654"></property>
+	<property name="name" value="Sumanth"></property>
+	<property name="gender" value="Male"></property>
+	<property name="salary" value="45000.0"></property>
+	<property name="mstatus" value="false"></property>
+	<property name="location" value="Vizag"></property>
+	<property name="age" value="19.5"></property>
+	<property name="skills">
+	<list>
+	<value>Technical</value>
+	<value>Marketing</value>
+	<value>Management</value>
+	</list>
+	</property>
+	</bean>
+	
+	<!-- 2nd bean definitions here -->
+	<bean id="stubean" class="ConstructorDI.Student">
+	<constructor-arg value="1000"></constructor-arg>
+	<constructor-arg value="KLU"></constructor-arg>
+	<constructor-arg value="MALE"></constructor-arg>
+	<constructor-arg value="30.8"></constructor-arg>
+	<constructor-arg value="CSE"></constructor-arg>
+	<constructor-arg value="false"></constructor-arg>
+	<constructor-arg >
+	<list>
+	<value>AWS-CP</value>
+	<value>RED HAT</value>
+	<value>OCI-JAVA-SE11</value>
+	</list>
+	</constructor-arg>
+	</bean>
+
+	<!-- Auto wiring bean definitions here -->
+	<bean id="facultybean" class="Autowiring.Faculty">
+	<property name="id" value="4654"></property>
+	<property name="name" value="Sumanth"></property>
+	<property name="gender" value="Male"></property>
+	<property name="salary" value="30000.0"></property>
+	<property name="department" value="CSIT"></property>
+	<property name="course" ref="coursebean"></property>
+	</bean>
+	
+	<!-- Auto wiring bean definitions here -->
+	<bean id="coursebean" class="Autowiring.Course">
+	<property name="cid" value="2000"></property>
+	<property name="cname" value="JFSD"></property>
+	<property name="credits" value="4.5"></property>
+	</bean>
+		
+</beans>
